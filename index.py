@@ -1,12 +1,17 @@
 import pandas as pd
-from dash import dcc, html, Input, Output, State
+import dash
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.graph_objects as go
 
-from app import app, server
 from dash_bootstrap_templates import ThemeSwitchAIO
 
+FONT_AWESOME = ["https://use.fontawesome.com/releases/v5.10.2/css/all.css"]
+
+app = dash.Dash(__name__, external_stylesheets=FONT_AWESOME)
+
+app.scripts.config.serve_locally = True
+server = app.server
 
 # ========== Styles ============ #
 tab_card = {'height': '100%'}
@@ -120,7 +125,7 @@ def convert_to_text(month):
 # =========  Layout  =========== #
 app.layout = dbc.Container(children=[
     # Armazenamento de dataset
-    # dcc.Store(id='dataset', data=df_store),
+    dcc.Store(id='dataset', data=df_store),
 
     # Layout
     # Row 1
