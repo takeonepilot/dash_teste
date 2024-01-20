@@ -125,7 +125,7 @@ def convert_to_text(month):
 # =========  Layout  =========== #
 app.layout = dbc.Container(children=[
     # Armazenamento de dataset
-    dcc.Store(id='dataset', data=df_store),
+    # dcc.Store(id='dataset', data=df_store),
 
     # Layout
     # Row 1
